@@ -34,5 +34,44 @@ namespace WinFormsBuisnessApp.Tables
 
             command.ExecuteNonQuery();
         }
+        
+        public List<Outcome> GetByDate(DateOnly searchDate)
+        {
+            List<Outcome> outcomes= new List<Outcome>();
+
+            string sqlRequest = @$"
+            select i.id,i.outcome_date,i.description,i.money,i.outcome_category_id as category_id,ic.name as category_name 
+            from outcomes as i
+            join outcome_categories as ic on ic.id = i.outcome_category_id
+            where i.outcome_date = '{searchDate.ToString("yyyy-MM-dd")}'
+            ";
+            NpgsqlCommand command = new NpgsqlCommand(sqlRequest, _connection);
+
+            NpgsqlDataReader dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                int id = dataReader.GetInt32(dataReader.GetOrdinal("id"));
+                DateOnly date = DateOnly.FromDateTime(dataReader.GetDateTime(dataReader.GetOrdinal("income_date")));
+                int categoryId = dataReader.GetInt32(dataReader.GetOrdinal("category_id"));
+                string categoryName = dataReader.GetString(dataReader.GetOrdinal("category_name"));
+                string description = dataReader.GetString(dataReader.GetOrdinal("description"));
+                int money = dataReader.GetInt32(dataReader.GetOrdinal("money"));
+                
+                outcomes.Add(new Outcome()
+                {
+                    Id = id,
+                    Date = date,
+                    CategoryId = categoryId,
+                    CategoryName = categoryName,
+                    Description = description,
+                    Money = money
+                });
+            }
+
+            dataReader.Close();
+
+            return outcomes;
+        }
     }
 }

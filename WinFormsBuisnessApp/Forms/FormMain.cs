@@ -15,7 +15,12 @@ public partial class FormMain : Form
 
     private void FormMain_Load(object sender, EventArgs e)
     {
-        _formMainController.Test();
+        //_formMainController.Test();
 
+    }
+
+    private void buttonIncomeAddIncome_Click(object sender, EventArgs e)
+    {
+        _formMainController.IncomeAddNew();
     }
 }
