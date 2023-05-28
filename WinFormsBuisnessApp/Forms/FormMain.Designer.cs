@@ -29,185 +29,206 @@ partial class FormMain
     /// </summary>
     private void InitializeComponent()
     {
-        tabControl1 = new TabControl();
-        tabPageIncomes = new TabPage();
-        buttonIncomeAddIncome = new Button();
-        label5 = new Label();
-        label4 = new Label();
-        label3 = new Label();
-        label2 = new Label();
-        label1 = new Label();
-        numericUpDownIncomeInputMoney = new NumericUpDown();
-        textBoxIncomeInputDescription = new TextBox();
-        comboBoxIncomeInputCategory = new ComboBox();
-        dateTimePickerIncomeInputDate = new DateTimePicker();
-        tabPageOutcomes = new TabPage();
-        tabPageBalance = new TabPage();
-        tabControl1.SuspendLayout();
-        tabPageIncomes.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)numericUpDownIncomeInputMoney).BeginInit();
-        SuspendLayout();
-        // 
-        // tabControl1
-        // 
-        tabControl1.Controls.Add(tabPageIncomes);
-        tabControl1.Controls.Add(tabPageOutcomes);
-        tabControl1.Controls.Add(tabPageBalance);
-        tabControl1.Dock = DockStyle.Fill;
-        tabControl1.Location = new Point(0, 0);
-        tabControl1.Name = "tabControl1";
-        tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(934, 600);
-        tabControl1.TabIndex = 0;
-        // 
-        // tabPageIncomes
-        // 
-        tabPageIncomes.Controls.Add(buttonIncomeAddIncome);
-        tabPageIncomes.Controls.Add(label5);
-        tabPageIncomes.Controls.Add(label4);
-        tabPageIncomes.Controls.Add(label3);
-        tabPageIncomes.Controls.Add(label2);
-        tabPageIncomes.Controls.Add(label1);
-        tabPageIncomes.Controls.Add(numericUpDownIncomeInputMoney);
-        tabPageIncomes.Controls.Add(textBoxIncomeInputDescription);
-        tabPageIncomes.Controls.Add(comboBoxIncomeInputCategory);
-        tabPageIncomes.Controls.Add(dateTimePickerIncomeInputDate);
-        tabPageIncomes.Location = new Point(4, 29);
-        tabPageIncomes.Name = "tabPageIncomes";
-        tabPageIncomes.Padding = new Padding(3);
-        tabPageIncomes.Size = new Size(926, 567);
-        tabPageIncomes.TabIndex = 0;
-        tabPageIncomes.Text = "Доходы";
-        tabPageIncomes.UseVisualStyleBackColor = true;
-        // 
-        // buttonIncomeAddIncome
-        // 
-        buttonIncomeAddIncome.Location = new Point(8, 174);
-        buttonIncomeAddIncome.Name = "buttonIncomeAddIncome";
-        buttonIncomeAddIncome.Size = new Size(901, 29);
-        buttonIncomeAddIncome.TabIndex = 9;
-        buttonIncomeAddIncome.Text = "Добавить доход";
-        buttonIncomeAddIncome.UseVisualStyleBackColor = true;
-        buttonIncomeAddIncome.Click += buttonIncomeAddIncome_Click;
-        // 
-        // label5
-        // 
-        label5.AutoSize = true;
-        label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label5.Location = new Point(797, 73);
-        label5.Name = "label5";
-        label5.Size = new Size(72, 28);
-        label5.TabIndex = 8;
-        label5.Text = "Сумма";
-        // 
-        // label4
-        // 
-        label4.AutoSize = true;
-        label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label4.Location = new Point(587, 73);
-        label4.Name = "label4";
-        label4.Size = new Size(104, 28);
-        label4.TabIndex = 7;
-        label4.Text = "Описание";
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label3.Location = new Point(381, 73);
-        label3.Name = "label3";
-        label3.Size = new Size(106, 28);
-        label3.TabIndex = 6;
-        label3.Text = "Категория";
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label2.Location = new Point(107, 73);
-        label2.Name = "label2";
-        label2.Size = new Size(54, 28);
-        label2.TabIndex = 5;
-        label2.Text = "Дата";
-        // 
-        // label1
-        // 
-        label1.AutoSize = true;
-        label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-        label1.Location = new Point(329, 3);
-        label1.Name = "label1";
-        label1.Size = new Size(271, 38);
-        label1.TabIndex = 4;
-        label1.Text = "Добавление дохода";
-        // 
-        // numericUpDownIncomeInputMoney
-        // 
-        numericUpDownIncomeInputMoney.Location = new Point(759, 129);
-        numericUpDownIncomeInputMoney.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-        numericUpDownIncomeInputMoney.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-        numericUpDownIncomeInputMoney.Name = "numericUpDownIncomeInputMoney";
-        numericUpDownIncomeInputMoney.Size = new Size(150, 27);
-        numericUpDownIncomeInputMoney.TabIndex = 3;
-        numericUpDownIncomeInputMoney.Value = new decimal(new int[] { 1, 0, 0, 0 });
-        // 
-        // textBoxIncomeInputDescription
-        // 
-        textBoxIncomeInputDescription.Location = new Point(565, 132);
-        textBoxIncomeInputDescription.Name = "textBoxIncomeInputDescription";
-        textBoxIncomeInputDescription.Size = new Size(150, 27);
-        textBoxIncomeInputDescription.TabIndex = 2;
-        // 
-        // comboBoxIncomeInputCategory
-        // 
-        comboBoxIncomeInputCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-        comboBoxIncomeInputCategory.FormattingEnabled = true;
-        comboBoxIncomeInputCategory.Location = new Point(353, 129);
-        comboBoxIncomeInputCategory.Name = "comboBoxIncomeInputCategory";
-        comboBoxIncomeInputCategory.Size = new Size(151, 28);
-        comboBoxIncomeInputCategory.TabIndex = 1;
-        // 
-        // dateTimePickerIncomeInputDate
-        // 
-        dateTimePickerIncomeInputDate.Location = new Point(8, 130);
-        dateTimePickerIncomeInputDate.Name = "dateTimePickerIncomeInputDate";
-        dateTimePickerIncomeInputDate.Size = new Size(250, 27);
-        dateTimePickerIncomeInputDate.TabIndex = 0;
-        // 
-        // tabPageOutcomes
-        // 
-        tabPageOutcomes.Location = new Point(4, 29);
-        tabPageOutcomes.Name = "tabPageOutcomes";
-        tabPageOutcomes.Padding = new Padding(3);
-        tabPageOutcomes.Size = new Size(926, 567);
-        tabPageOutcomes.TabIndex = 1;
-        tabPageOutcomes.Text = "Расходы";
-        tabPageOutcomes.UseVisualStyleBackColor = true;
-        // 
-        // tabPageBalance
-        // 
-        tabPageBalance.Location = new Point(4, 29);
-        tabPageBalance.Name = "tabPageBalance";
-        tabPageBalance.Padding = new Padding(3);
-        tabPageBalance.Size = new Size(926, 567);
-        tabPageBalance.TabIndex = 2;
-        tabPageBalance.Text = "Баланс";
-        tabPageBalance.UseVisualStyleBackColor = true;
-        // 
-        // FormMain
-        // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(934, 600);
-        Controls.Add(tabControl1);
-        Margin = new Padding(3, 4, 3, 4);
-        Name = "FormMain";
-        Text = "Form1";
-        Load += FormMain_Load;
-        tabControl1.ResumeLayout(false);
-        tabPageIncomes.ResumeLayout(false);
-        tabPageIncomes.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)numericUpDownIncomeInputMoney).EndInit();
-        ResumeLayout(false);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageIncomes = new System.Windows.Forms.TabPage();
+            this.buttonIncomeAddIncome = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownIncomeInputMoney = new System.Windows.Forms.NumericUpDown();
+            this.textBoxIncomeInputDescription = new System.Windows.Forms.TextBox();
+            this.comboBoxIncomeInputCategory = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerIncomeInputDate = new System.Windows.Forms.DateTimePicker();
+            this.tabPageOutcomes = new System.Windows.Forms.TabPage();
+            this.tabPageBalance = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.tabPageIncomes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIncomeInputMoney)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageIncomes);
+            this.tabControl1.Controls.Add(this.tabPageOutcomes);
+            this.tabControl1.Controls.Add(this.tabPageBalance);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(817, 450);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPageIncomes
+            // 
+            this.tabPageIncomes.Controls.Add(this.buttonIncomeAddIncome);
+            this.tabPageIncomes.Controls.Add(this.label5);
+            this.tabPageIncomes.Controls.Add(this.label4);
+            this.tabPageIncomes.Controls.Add(this.label3);
+            this.tabPageIncomes.Controls.Add(this.label2);
+            this.tabPageIncomes.Controls.Add(this.label1);
+            this.tabPageIncomes.Controls.Add(this.numericUpDownIncomeInputMoney);
+            this.tabPageIncomes.Controls.Add(this.textBoxIncomeInputDescription);
+            this.tabPageIncomes.Controls.Add(this.comboBoxIncomeInputCategory);
+            this.tabPageIncomes.Controls.Add(this.dateTimePickerIncomeInputDate);
+            this.tabPageIncomes.Location = new System.Drawing.Point(4, 24);
+            this.tabPageIncomes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageIncomes.Name = "tabPageIncomes";
+            this.tabPageIncomes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageIncomes.Size = new System.Drawing.Size(809, 422);
+            this.tabPageIncomes.TabIndex = 0;
+            this.tabPageIncomes.Text = "Доходы";
+            this.tabPageIncomes.UseVisualStyleBackColor = true;
+            // 
+            // buttonIncomeAddIncome
+            // 
+            this.buttonIncomeAddIncome.Location = new System.Drawing.Point(7, 130);
+            this.buttonIncomeAddIncome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIncomeAddIncome.Name = "buttonIncomeAddIncome";
+            this.buttonIncomeAddIncome.Size = new System.Drawing.Size(788, 22);
+            this.buttonIncomeAddIncome.TabIndex = 9;
+            this.buttonIncomeAddIncome.Text = "Добавить доход";
+            this.buttonIncomeAddIncome.UseVisualStyleBackColor = true;
+            this.buttonIncomeAddIncome.Click += new System.EventHandler(this.buttonIncomeAddIncome_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(697, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 21);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Сумма";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(514, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Описание";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(333, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 21);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Категория";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(94, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Дата";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(288, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 30);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Добавление дохода";
+            // 
+            // numericUpDownIncomeInputMoney
+            // 
+            this.numericUpDownIncomeInputMoney.Location = new System.Drawing.Point(664, 97);
+            this.numericUpDownIncomeInputMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownIncomeInputMoney.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericUpDownIncomeInputMoney.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownIncomeInputMoney.Name = "numericUpDownIncomeInputMoney";
+            this.numericUpDownIncomeInputMoney.Size = new System.Drawing.Size(131, 23);
+            this.numericUpDownIncomeInputMoney.TabIndex = 3;
+            this.numericUpDownIncomeInputMoney.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBoxIncomeInputDescription
+            // 
+            this.textBoxIncomeInputDescription.Location = new System.Drawing.Point(494, 99);
+            this.textBoxIncomeInputDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxIncomeInputDescription.Name = "textBoxIncomeInputDescription";
+            this.textBoxIncomeInputDescription.Size = new System.Drawing.Size(132, 23);
+            this.textBoxIncomeInputDescription.TabIndex = 2;
+            // 
+            // comboBoxIncomeInputCategory
+            // 
+            this.comboBoxIncomeInputCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIncomeInputCategory.FormattingEnabled = true;
+            this.comboBoxIncomeInputCategory.Location = new System.Drawing.Point(309, 97);
+            this.comboBoxIncomeInputCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxIncomeInputCategory.Name = "comboBoxIncomeInputCategory";
+            this.comboBoxIncomeInputCategory.Size = new System.Drawing.Size(133, 23);
+            this.comboBoxIncomeInputCategory.TabIndex = 1;
+            // 
+            // dateTimePickerIncomeInputDate
+            // 
+            this.dateTimePickerIncomeInputDate.Location = new System.Drawing.Point(7, 98);
+            this.dateTimePickerIncomeInputDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerIncomeInputDate.Name = "dateTimePickerIncomeInputDate";
+            this.dateTimePickerIncomeInputDate.Size = new System.Drawing.Size(219, 23);
+            this.dateTimePickerIncomeInputDate.TabIndex = 0;
+            // 
+            // tabPageOutcomes
+            // 
+            this.tabPageOutcomes.Location = new System.Drawing.Point(4, 24);
+            this.tabPageOutcomes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageOutcomes.Name = "tabPageOutcomes";
+            this.tabPageOutcomes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageOutcomes.Size = new System.Drawing.Size(809, 422);
+            this.tabPageOutcomes.TabIndex = 1;
+            this.tabPageOutcomes.Text = "Расходы";
+            this.tabPageOutcomes.UseVisualStyleBackColor = true;
+            // 
+            // tabPageBalance
+            // 
+            this.tabPageBalance.Location = new System.Drawing.Point(4, 24);
+            this.tabPageBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageBalance.Name = "tabPageBalance";
+            this.tabPageBalance.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageBalance.Size = new System.Drawing.Size(809, 422);
+            this.tabPageBalance.TabIndex = 2;
+            this.tabPageBalance.Text = "Баланс";
+            this.tabPageBalance.UseVisualStyleBackColor = true;
+            // 
+            // FormMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.tabControl1);
+            this.Name = "FormMain";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageIncomes.ResumeLayout(false);
+            this.tabPageIncomes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIncomeInputMoney)).EndInit();
+            this.ResumeLayout(false);
+
     }
 
     #endregion

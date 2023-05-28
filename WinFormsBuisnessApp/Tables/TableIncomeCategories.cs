@@ -17,7 +17,7 @@ namespace WinFormsBuisnessApp.Tables
             _connection = connection;
         }
 
-        public List<IncomeCategory> GetAll() 
+        public List<IncomeCategory> GetAll()
         { 
             List<IncomeCategory> incomeCategories= new List<IncomeCategory>();
 
