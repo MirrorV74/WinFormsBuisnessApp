@@ -29,8 +29,11 @@ partial class FormMain
     /// </summary>
     private void InitializeComponent()
     {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageIncomes = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridViewIncomeChooseIncomes = new System.Windows.Forms.DataGridView();
             this.buttonIncomeAddIncome = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,9 +46,14 @@ partial class FormMain
             this.dateTimePickerIncomeInputDate = new System.Windows.Forms.DateTimePicker();
             this.tabPageOutcomes = new System.Windows.Forms.TabPage();
             this.tabPageBalance = new System.Windows.Forms.TabPage();
+            this.dateTimePickerIncomeChooseDate = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStripIncomeDataGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPageIncomes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIncomeChooseIncomes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIncomeInputMoney)).BeginInit();
+            this.contextMenuStripIncomeDataGridView.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,6 +71,9 @@ partial class FormMain
             // 
             // tabPageIncomes
             // 
+            this.tabPageIncomes.Controls.Add(this.dateTimePickerIncomeChooseDate);
+            this.tabPageIncomes.Controls.Add(this.label6);
+            this.tabPageIncomes.Controls.Add(this.dataGridViewIncomeChooseIncomes);
             this.tabPageIncomes.Controls.Add(this.buttonIncomeAddIncome);
             this.tabPageIncomes.Controls.Add(this.label5);
             this.tabPageIncomes.Controls.Add(this.label4);
@@ -81,6 +92,32 @@ partial class FormMain
             this.tabPageIncomes.TabIndex = 0;
             this.tabPageIncomes.Text = "Доходы";
             this.tabPageIncomes.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(226, 163);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 30);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Доходы на дату:";
+            // 
+            // dataGridViewIncomeChooseIncomes
+            // 
+            this.dataGridViewIncomeChooseIncomes.AllowUserToAddRows = false;
+            this.dataGridViewIncomeChooseIncomes.AllowUserToDeleteRows = false;
+            this.dataGridViewIncomeChooseIncomes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewIncomeChooseIncomes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewIncomeChooseIncomes.ContextMenuStrip = this.contextMenuStripIncomeDataGridView;
+            this.dataGridViewIncomeChooseIncomes.Location = new System.Drawing.Point(8, 209);
+            this.dataGridViewIncomeChooseIncomes.MultiSelect = false;
+            this.dataGridViewIncomeChooseIncomes.Name = "dataGridViewIncomeChooseIncomes";
+            this.dataGridViewIncomeChooseIncomes.ReadOnly = true;
+            this.dataGridViewIncomeChooseIncomes.RowTemplate.Height = 25;
+            this.dataGridViewIncomeChooseIncomes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewIncomeChooseIncomes.Size = new System.Drawing.Size(795, 205);
+            this.dataGridViewIncomeChooseIncomes.TabIndex = 10;
             // 
             // buttonIncomeAddIncome
             // 
@@ -214,6 +251,26 @@ partial class FormMain
             this.tabPageBalance.Text = "Баланс";
             this.tabPageBalance.UseVisualStyleBackColor = true;
             // 
+            // dateTimePickerIncomeChooseDate
+            // 
+            this.dateTimePickerIncomeChooseDate.Location = new System.Drawing.Point(468, 169);
+            this.dateTimePickerIncomeChooseDate.Name = "dateTimePickerIncomeChooseDate";
+            this.dateTimePickerIncomeChooseDate.Size = new System.Drawing.Size(232, 23);
+            this.dateTimePickerIncomeChooseDate.TabIndex = 12;
+            // 
+            // contextMenuStripIncomeDataGridView
+            // 
+            this.contextMenuStripIncomeDataGridView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStripIncomeDataGridView.Name = "contextMenuStripIncomeDataGridView";
+            this.contextMenuStripIncomeDataGridView.Size = new System.Drawing.Size(119, 26);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,7 +283,9 @@ partial class FormMain
             this.tabControl1.ResumeLayout(false);
             this.tabPageIncomes.ResumeLayout(false);
             this.tabPageIncomes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIncomeChooseIncomes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIncomeInputMoney)).EndInit();
+            this.contextMenuStripIncomeDataGridView.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -247,4 +306,9 @@ partial class FormMain
     private DateTimePicker dateTimePickerIncomeInputDate;
     private TabPage tabPageOutcomes;
     private TabPage tabPageBalance;
+    private Label label6;
+    private DataGridView dataGridViewIncomeChooseIncomes;
+    private DateTimePicker dateTimePickerIncomeChooseDate;
+    private ContextMenuStrip contextMenuStripIncomeDataGridView;
+    private ToolStripMenuItem удалитьToolStripMenuItem;
 }
