@@ -48,5 +48,43 @@ namespace WinFormsBuisnessApp.Controllers
 
             int i = 5;
         }
+
+        public void IncomeAddNew()
+        {
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageIncomes"];
+            
+            DateTimePicker dateTimePickerIncomeInputDate = 
+                (DateTimePicker)tabPageIncomes.Controls["dateTimePickerIncomeInputDate"];
+            ComboBox comboBoxIncomeInputCategory = (ComboBox)tabPageIncomes.Controls["comboBoxIncomeInputCategory"];
+            TextBox textBoxIncomeInputDescription = (TextBox)tabPageIncomes.Controls["textBoxIncomeInputDescription"];
+            NumericUpDown numericUpDownIncomeInputMoney = (NumericUpDown)tabPageIncomes.Controls["numericUpDownIncomeInputMoney"];
+
+            if (dateTimePickerIncomeInputDate.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Ошибка: доход из будщего");
+                return;
+            }
+            
+            if (comboBoxIncomeInputCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ошибка: Не выбрана категория");
+                return;
+            }
+            
+            if (textBoxIncomeInputDescription.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка: Нет описания");
+                return;
+            }
+            
+            Income income = new Income()
+            {
+                Date = DateOnly.FromDateTime(dateTimePickerIncomeInputDate.Value),
+                CategoryId = ((IncomeCategory)comboBoxIncomeInputCategory.SelectedItem).Id,
+                Description = textBoxIncomeInputDescription.Text,
+                Money = (int)numericUpDownIncomeInputMoney.Value
+            };
+            _dbManager.TableIncomes.AddNew(income);
+        }
     }
 }
