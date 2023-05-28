@@ -16,7 +16,7 @@ public partial class FormMain : Form
     private void FormMain_Load(object sender, EventArgs e)
     {
         //_formMainController.Test();
-
+        _formMainController.IncomeFillComboBoxIncomeInputCategory();
     }
 
     private void buttonIncomeAddIncome_Click(object sender, EventArgs e)

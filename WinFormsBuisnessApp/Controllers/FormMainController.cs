@@ -84,7 +84,38 @@ namespace WinFormsBuisnessApp.Controllers
                 Description = textBoxIncomeInputDescription.Text,
                 Money = (int)numericUpDownIncomeInputMoney.Value
             };
-            _dbManager.TableIncomes.AddNew(income);
+
+            try 
+            {
+                _dbManager.TableIncomes.AddNew(income);
+            }
+            catch 
+            {
+                MessageBox.Show("Ошибка: с база данных не отвечает");
+                return;
+            }
+
+            dateTimePickerIncomeInputDate.Value = DateTime.Now.Date;
+            comboBoxIncomeInputCategory.SelectedIndex = -1;
+            textBoxIncomeInputDescription.Clear();
+            numericUpDownIncomeInputMoney.Value = numericUpDownIncomeInputMoney.Minimum;
+
+            MessageBox.Show("Успех: Доход добавлен");
+        }
+
+        public void IncomeFillComboBoxIncomeInputCategory()
+        {
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageIncomes"];
+            ComboBox comboBoxIncomeInputCategory = (ComboBox)tabPageIncomes.Controls["comboBoxIncomeInputCategory"];
+
+            List<IncomeCategory> incomeCategories =_dbManager.TableIncomesCategories.GetAll();
+
+            comboBoxIncomeInputCategory.DataSource = null;
+            comboBoxIncomeInputCategory.DataSource = incomeCategories;
+
+            comboBoxIncomeInputCategory.DisplayMember = "Name";
+
+            comboBoxIncomeInputCategory.SelectedIndex = -1;
         }
     }
 }
