@@ -143,7 +143,7 @@ namespace WinFormsBuisnessApp.Controllers
 
             if (dateTimePickerOutcomeInputDate.Value.Date > DateTime.Now.Date)
             {
-                MessageBox.Show("Ошибка: доход из будщего");
+                MessageBox.Show("Ошибка: категория из будщего");
                 return;
             }
 
