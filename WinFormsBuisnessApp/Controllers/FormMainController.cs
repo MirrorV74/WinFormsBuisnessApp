@@ -44,7 +44,7 @@ namespace WinFormsBuisnessApp.Controllers
             
             //_dbManager.TableIncomes.DeleteById(1);
             
-            List<Income> list = _dbManager.TableIncomes.GetByDate(new DateOnly(2023,5,20));
+            //List<Income> list = _dbManager.TableIncomes.GetByDate(new DateOnly(2023,5,20));
         }
 
         public void IncomeAddNew()
@@ -89,7 +89,7 @@ namespace WinFormsBuisnessApp.Controllers
             }
             catch 
             {
-                MessageBox.Show("Ошибка: с база данных не отвечает");
+                MessageBox.Show("Ошибка: база данных не отвечает");
                 return;
             }
 
@@ -118,8 +118,8 @@ namespace WinFormsBuisnessApp.Controllers
 
         public void OutcomeFillComboBoxOutcomeInputCategory()
         {
-            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
-            ComboBox comboBoxOutcomeInputCategory = (ComboBox)tabPageIncomes.Controls["comboBoxOutcomeInputCategory"];
+            TabPage tabPageOutcomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+            ComboBox comboBoxOutcomeInputCategory = (ComboBox)tabPageOutcomes.Controls["comboBoxOutcomeInputCategory"];
 
             List<OutcomeCategory> outcomeCategories = _dbManager.TableOutcomeCatedories.GetAll();
 
@@ -143,7 +143,7 @@ namespace WinFormsBuisnessApp.Controllers
 
             if (dateTimePickerOutcomeInputDate.Value.Date > DateTime.Now.Date)
             {
-                MessageBox.Show("Ошибка: категория из будщего");
+                MessageBox.Show("Ошибка: расход из будущего");
                 return;
             }
 
@@ -173,7 +173,7 @@ namespace WinFormsBuisnessApp.Controllers
             }
             catch
             {
-                MessageBox.Show("Ошибка: с база данных не отвечает");
+                MessageBox.Show("Ошибка: база данных не отвечает");
                 return;
             }
 
@@ -182,7 +182,7 @@ namespace WinFormsBuisnessApp.Controllers
             textBoxOutcomeInputDescription.Clear();
             numericUpDownOutcomeInputMoney.Value = numericUpDownOutcomeInputMoney.Minimum;
 
-            MessageBox.Show("Успех: Доход добавлен");
+            MessageBox.Show("Успех: Расход добавлен");
         }
     }
 }
