@@ -15,12 +15,17 @@ public partial class FormMain : Form
 
     private void FormMain_Load(object sender, EventArgs e)
     {
-        //_formMainController.Test();
         _formMainController.IncomeFillComboBoxIncomeInputCategory();
+        _formMainController.OutcomeFillComboBoxOutcomeInputCategory();
     }
 
     private void buttonIncomeAddIncome_Click(object sender, EventArgs e)
     {
         _formMainController.IncomeAddNew();
+    }
+
+    private void buttonOutcomeAddOutcome_Click(object sender, EventArgs e)
+    {
+        _formMainController.OutcomeAddNew();
     }
 }

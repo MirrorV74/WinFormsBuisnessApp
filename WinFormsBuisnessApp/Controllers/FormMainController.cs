@@ -45,8 +45,6 @@ namespace WinFormsBuisnessApp.Controllers
             //_dbManager.TableIncomes.DeleteById(1);
             
             List<Income> list = _dbManager.TableIncomes.GetByDate(new DateOnly(2023,5,20));
-
-            int i = 5;
         }
 
         public void IncomeAddNew()
@@ -116,6 +114,75 @@ namespace WinFormsBuisnessApp.Controllers
             comboBoxIncomeInputCategory.DisplayMember = "Name";
 
             comboBoxIncomeInputCategory.SelectedIndex = -1;
+        }
+
+        public void OutcomeFillComboBoxOutcomeInputCategory()
+        {
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+            ComboBox comboBoxOutcomeInputCategory = (ComboBox)tabPageIncomes.Controls["comboBoxOutcomeInputCategory"];
+
+            List<OutcomeCategory> outcomeCategories = _dbManager.TableOutcomeCatedories.GetAll();
+
+            comboBoxOutcomeInputCategory.DataSource = null;
+            comboBoxOutcomeInputCategory.DataSource = outcomeCategories;
+
+            comboBoxOutcomeInputCategory.DisplayMember = "Name";
+
+            comboBoxOutcomeInputCategory.SelectedIndex = -1;
+        }
+
+        public void OutcomeAddNew()
+        {
+            TabPage tabPageOutcomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+
+            DateTimePicker dateTimePickerOutcomeInputDate =
+                (DateTimePicker)tabPageOutcomes.Controls["dateTimePickerOutcomeInputDate"];
+            ComboBox comboBoxOutcomeInputCategory = (ComboBox)tabPageOutcomes.Controls["comboBoxOutcomeInputCategory"];
+            TextBox textBoxOutcomeInputDescription = (TextBox)tabPageOutcomes.Controls["textBoxOutcomeInputDescription"];
+            NumericUpDown numericUpDownOutcomeInputMoney = (NumericUpDown)tabPageOutcomes.Controls["numericUpDownOutcomeInputMoney"];
+
+            if (dateTimePickerOutcomeInputDate.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Ошибка: доход из будщего");
+                return;
+            }
+
+            if (comboBoxOutcomeInputCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ошибка: Не выбрана категория");
+                return;
+            }
+
+            if (textBoxOutcomeInputDescription.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка: Нет описания");
+                return;
+            }
+
+            Outcome outcome = new Outcome()
+            {
+                Date = DateOnly.FromDateTime(dateTimePickerOutcomeInputDate.Value),
+                CategoryId = ((OutcomeCategory)comboBoxOutcomeInputCategory.SelectedItem).Id,
+                Description = textBoxOutcomeInputDescription.Text,
+                Money = (int)numericUpDownOutcomeInputMoney.Value
+            };
+
+            try
+            {
+                _dbManager.TableOutcomes.AddNew(outcome);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка: с база данных не отвечает");
+                return;
+            }
+
+            dateTimePickerOutcomeInputDate.Value = DateTime.Now.Date;
+            comboBoxOutcomeInputCategory.SelectedIndex = -1;
+            textBoxOutcomeInputDescription.Clear();
+            numericUpDownOutcomeInputMoney.Value = numericUpDownOutcomeInputMoney.Minimum;
+
+            MessageBox.Show("Успех: Доход добавлен");
         }
     }
 }
