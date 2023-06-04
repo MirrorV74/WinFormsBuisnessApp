@@ -20,6 +20,7 @@ public partial class FormMain : Form
         _formMainController.ResetDataTimePickers();
         _formMainController.FillDataGridViewIncomeChooseIncomesByDate();
         _formMainController.FillDataGridViewOutcomeChooseOutcomesByDate();
+        _formMainController.SetBalanceDateTimePickerToTotalPeriod();
     }
 
     private void buttonIncomeAddIncome_Click(object sender, EventArgs e)
@@ -54,5 +55,15 @@ public partial class FormMain : Form
     {
         _formMainController.DeleteOutcomeById();
         _formMainController.FillDataGridViewOutcomeChooseOutcomesByDate();
+    }
+
+    private void dateTimePickerBalanceStartDate_ValueChanged(object sender, EventArgs e)
+    {
+        _formMainController.ChooseBalanceFromPeriod();
+    }
+
+    private void dateTimePickerBalanceFinishDate_ValueChanged(object sender, EventArgs e)
+    {
+        _formMainController.ChooseBalanceFromPeriod();
     }
 }

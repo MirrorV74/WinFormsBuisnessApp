@@ -73,5 +73,22 @@ namespace WinFormsBuisnessApp.Tables
 
             return incomes;
         }
+
+        public int GetMoneyFromPeriod(DateTime startDate, DateTime finishDate)
+        {
+            string sqlRequest = @$"SELECT sum(money) FROM incomes WHERE 
+                                   income_date BETWEEN '{startDate.ToString("yyyy-MM-dd")}' AND '{finishDate.ToString("yyyy-MM-dd")}' ";
+            
+            NpgsqlCommand command = new NpgsqlCommand(sqlRequest, _connection);
+
+            NpgsqlDataReader dataReader = command.ExecuteReader();
+            
+            dataReader.Read();
+            int money = dataReader.GetInt32(dataReader.GetOrdinal("sum"));
+        
+            dataReader.Close();
+
+            return money;
+        }
     }
 }

@@ -290,5 +290,45 @@ namespace WinFormsBuisnessApp.Controllers
                 return;
             }
         }
+
+        public void SetBalanceDateTimePickerToTotalPeriod()
+        {
+            TabPage tabPageBalance = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageBalance"];
+            DateTimePicker dateTimePickerBalanceStartDate =
+                (DateTimePicker)tabPageBalance.Controls["dateTimePickerBalanceStartDate"];
+            DateTimePicker dateTimePickerBalanceFinishDate =
+                (DateTimePicker)tabPageBalance.Controls["dateTimePickerBalanceFinishDate"];
+
+            dateTimePickerBalanceStartDate.Value = _dbManager.TableUtils.GetMinimumDateFromIncomesAndOutcomes();
+            dateTimePickerBalanceFinishDate.Value = _dbManager.TableUtils.GetMaximumDateFromIncomesAndOutcomes();
+        }
+
+        public void ChooseBalanceFromPeriod()
+        {
+            TabPage tabPageBalance = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageBalance"];
+            DateTimePicker dateTimePickerBalanceStartDate =
+                (DateTimePicker)tabPageBalance.Controls["dateTimePickerBalanceStartDate"];
+            DateTimePicker dateTimePickerBalanceFinishDate =
+                (DateTimePicker)tabPageBalance.Controls["dateTimePickerBalanceFinishDate"];
+
+            TextBox textBoxBalanceTotalIncome = (TextBox)tabPageBalance.Controls["textBoxBalanceTotalIncome"];
+            TextBox textBoxBalanceTotalOutcome = (TextBox)tabPageBalance.Controls["textBoxBalanceTotalOutcome"];
+            TextBox textBoxBalanceMoneyBalance = (TextBox)tabPageBalance.Controls["textBoxBalanceMoneyBalance"];
+            
+            DateTime startDate = dateTimePickerBalanceStartDate.Value;
+            DateTime finishDate = dateTimePickerBalanceFinishDate.Value;
+
+            if (startDate > finishDate)
+            {
+                return;
+            }
+            int incomeMoney = _dbManager.TableIncomes.GetMoneyFromPeriod(startDate, finishDate);
+            int outcomeMoney = _dbManager.TableOutcomes.GetMoneyFromPeriod(startDate, finishDate);
+            int result = incomeMoney - outcomeMoney;
+
+            textBoxBalanceTotalIncome.Text = incomeMoney.ToString();
+            textBoxBalanceTotalOutcome.Text = outcomeMoney.ToString();
+            textBoxBalanceMoneyBalance.Text = result.ToString();
+        }
     }
 }

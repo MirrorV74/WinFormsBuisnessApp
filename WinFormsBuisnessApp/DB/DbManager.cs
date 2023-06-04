@@ -27,6 +27,8 @@ namespace WinFormsBuisnessApp.DB
         public TableIncomeCategories TableIncomesCategories { get; private set; }
         public TableOutcomes TableOutcomes { get; private set; }
         public TableOutcomeCatedories TableOutcomeCatedories { get; private set; }
+        
+        public TableUtils TableUtils { get; private set; }
 
 
         private DbManager()
@@ -36,6 +38,7 @@ namespace WinFormsBuisnessApp.DB
             TableIncomesCategories = new TableIncomeCategories(dbconection.Connection);
             TableOutcomes = new TableOutcomes(dbconection.Connection);
             TableOutcomeCatedories = new TableOutcomeCatedories(dbconection.Connection);
+            TableUtils = new TableUtils(dbconection.Connection);
         }
     }
 }
