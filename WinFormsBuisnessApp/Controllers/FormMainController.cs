@@ -318,7 +318,7 @@ namespace WinFormsBuisnessApp.Controllers
             DateTime startDate = dateTimePickerBalanceStartDate.Value;
             DateTime finishDate = dateTimePickerBalanceFinishDate.Value;
 
-            if (startDate > finishDate)
+            if (startDate.Date > finishDate.Date)
             {
                 return;
             }
