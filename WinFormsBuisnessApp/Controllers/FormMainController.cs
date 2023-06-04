@@ -184,5 +184,111 @@ namespace WinFormsBuisnessApp.Controllers
 
             MessageBox.Show("Успех: Расход добавлен");
         }
+
+        public void ResetDataTimePickers() 
+        {
+            TabPage tabPageOutcomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageIncomes"];
+
+            DateTimePicker dateTimePickerOutcomeInputDate =
+                (DateTimePicker)tabPageOutcomes.Controls["dateTimePickerOutcomeInputDate"];
+            DateTimePicker dateTimePickerOutcomeChooseDate =
+                (DateTimePicker)tabPageOutcomes.Controls["dateTimePickerOutcomeChooseDate"];
+            DateTimePicker dateTimePickerIncomeInputDate =
+                (DateTimePicker)tabPageIncomes.Controls["dateTimePickerIncomeInputDate"];
+            DateTimePicker dateTimePickerIncomeChooseDate =
+                (DateTimePicker)tabPageIncomes.Controls["dateTimePickerIncomeChooseDate"];
+
+            dateTimePickerOutcomeInputDate.Value = DateTime.Now.Date;
+            dateTimePickerOutcomeChooseDate.Value = DateTime.Now.Date;
+            dateTimePickerIncomeInputDate.Value = DateTime.Now.Date;
+            dateTimePickerIncomeChooseDate.Value = DateTime.Now.Date;
+        }
+
+        public void FillDataGridViewIncomeChooseIncomesByDate() 
+        {
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageIncomes"];
+            DateTimePicker dateTimePickerIncomeChooseDate =
+                (DateTimePicker)tabPageIncomes.Controls["dateTimePickerIncomeChooseDate"];
+            DataGridView dataGridView = (DataGridView)tabPageIncomes.Controls["dataGridViewIncomeChooseIncomes"];
+
+            DateOnly chooseDate = DateOnly.FromDateTime(dateTimePickerIncomeChooseDate.Value);
+
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = _dbManager.TableIncomes.GetByDate(chooseDate);
+
+            dataGridView.Columns["Id"].Visible = false;
+            dataGridView.Columns["Date"].HeaderText = "Дата";
+            dataGridView.Columns["CategoryId"].Visible = false;
+            dataGridView.Columns["CategoryName"].HeaderText = "Категория";
+            dataGridView.Columns["Description"].HeaderText = "Описание";
+            dataGridView.Columns["Money"].HeaderText = "Сумма";
+        }
+
+        public void DeleteIncomeById() 
+        {
+            TabPage tabPageIncomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageIncomes"];
+            DataGridView dataGridView = (DataGridView)tabPageIncomes.Controls["dataGridViewIncomeChooseIncomes"];
+
+            if (dataGridView.SelectedRows.Count == 0) 
+            {
+                return;
+            }
+
+            int id = ((Income)dataGridView.SelectedRows[0].DataBoundItem).Id;
+
+            try
+            {
+                _dbManager.TableIncomes.DeleteById(id);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка: база данных не отвечает");
+                return;
+            }
+        }
+
+        public void FillDataGridViewOutcomeChooseOutcomesByDate()
+        {
+            TabPage tabPageOutcomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+            DateTimePicker dateTimePickerOutcomeChooseDate =
+                (DateTimePicker)tabPageOutcomes.Controls["dateTimePickerOutcomeChooseDate"];
+            DataGridView dataGridView = (DataGridView)tabPageOutcomes.Controls["dataGridViewOutcomeChooseOutcomes"];
+
+            DateOnly chooseDate = DateOnly.FromDateTime(dateTimePickerOutcomeChooseDate.Value);
+
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = _dbManager.TableOutcomes.GetByDate(chooseDate);
+
+            dataGridView.Columns["Id"].Visible = false;
+            dataGridView.Columns["Date"].HeaderText = "Дата";
+            dataGridView.Columns["CategoryId"].Visible = false;
+            dataGridView.Columns["CategoryName"].HeaderText = "Категория";
+            dataGridView.Columns["Description"].HeaderText = "Описание";
+            dataGridView.Columns["Money"].HeaderText = "Сумма";
+        }
+
+        public void DeleteOutcomeById()
+        {
+            TabPage tabPageOutcomes = (TabPage)((TabControl)_formMain.Controls["tabControl1"]).Controls["tabPageOutcomes"];
+            DataGridView dataGridView = (DataGridView)tabPageOutcomes.Controls["dataGridViewOutcomeChooseOutcomes"];
+
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            int id = ((Outcome)dataGridView.SelectedRows[0].DataBoundItem).Id;
+
+            try
+            {
+                _dbManager.TableOutcomes.DeleteById(id);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка: база данных не отвечает");
+                return;
+            }
+        }
     }
 }

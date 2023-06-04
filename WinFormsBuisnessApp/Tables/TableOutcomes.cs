@@ -52,7 +52,7 @@ namespace WinFormsBuisnessApp.Tables
             while (dataReader.Read())
             {
                 int id = dataReader.GetInt32(dataReader.GetOrdinal("id"));
-                DateOnly date = DateOnly.FromDateTime(dataReader.GetDateTime(dataReader.GetOrdinal("income_date")));
+                DateOnly date = DateOnly.FromDateTime(dataReader.GetDateTime(dataReader.GetOrdinal("outcome_date")));
                 int categoryId = dataReader.GetInt32(dataReader.GetOrdinal("category_id"));
                 string categoryName = dataReader.GetString(dataReader.GetOrdinal("category_name"));
                 string description = dataReader.GetString(dataReader.GetOrdinal("description"));
